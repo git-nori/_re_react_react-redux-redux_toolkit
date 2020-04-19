@@ -1,10 +1,16 @@
 import React from 'react';
+import { HashRouter as Router, Route, Link, Switch } from 'react-router-dom'
+import HomePage from './container/HomeContainer'
 
-function App() {
+function App () {
   return (
-    <div className="App">
-      <h1>Hello</h1>
-    </div>
+    <Router>
+      <Link to="/home">Home</Link>
+
+      <Switch>
+        <Route exact path="/home" component={HomePage} />
+      </Switch>
+    </Router>
   );
 }
 
