@@ -1,8 +1,8 @@
 import { connect } from 'react-redux'
-import { addTodo, deleteTodo, toggleTodoCompleted } from '../actions/todoActionCreator'
+import { deleteTodo, toggleTodoCompleted } from '../actions/todoActionCreator'
 import { showAll, showActive, showCompleted } from '../actions/visibleFilterActionCreator'
 
-import HomeTmp from '../templates/HomeTmp'
+import TodoList from '../organisms/TodoList'
 
 // container(Atomic Designのpageに相当)
 
@@ -15,8 +15,6 @@ const mapStateToProps = (state, ownProps) => ({
 
 // Objectをreturn
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  // ConnectしたComponentのpropsでstateのaddTodoをprops.addTodoFromConで受け取れる
-  addTodoFromCon: (txt) => dispatch(addTodo(txt)),
   deleteTodo: (idx) => dispatch(deleteTodo(idx)),
   toggleTodoCompleted: (idx) => dispatch(toggleTodoCompleted(idx)),
   showAll: () => dispatch(showAll()),
@@ -24,8 +22,10 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   showCompleted: () => dispatch(showCompleted())
 })
 
-// 上でセットした値をHomeTmpコンポーネントのpropsで受け取れるようconnect
-export default connect(
+// 上でセットした値をOrganismsのpropsで受け取れるようconnect
+const TodoListContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(HomeTmp)
+)(TodoList)
+
+export default TodoListContainer
