@@ -1,6 +1,6 @@
 import React from 'react';
 import { HashRouter as Router, Route, Link, Switch } from 'react-router-dom'
-import HomePage from './container/HomeContainer'
+import HomeTemplate from './templates/HomeTmp'
 
 function App () {
   return (
@@ -8,7 +8,7 @@ function App () {
       <Link to="/home">Home</Link>
 
       <Switch>
-        <Route exact path="/home" component={HomePage} />
+        <Route exact path="/home" component={HomeTemplate} />
       </Switch>
     </Router>
   );
