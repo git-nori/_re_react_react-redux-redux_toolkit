@@ -20,7 +20,7 @@ export const todoReducer = (state = [], action) => {
           return todo
         }
 
-        const newTodo = new Todo(action.text)
+        const newTodo = new Todo(todo.text)
         if (!todo.hasCompleted()) { newTodo._completed = true }
         return newTodo
       })
