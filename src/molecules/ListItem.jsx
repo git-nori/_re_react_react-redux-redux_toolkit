@@ -2,13 +2,18 @@ import React from 'react'
 
 import Button from '../atoms/Button'
 
-const ListItem = ({ id, children, deleteTodo, toggleTodoCompleted }) => {
+const ListItem = ({ id, children, actions }) => {
+  const renderBtn = () => {
+    if (actions) {
+      return actions.map((action, idx) => <Button key={idx} clkHandler={() => action.hndler(id)}>{action.name}</Button>)
+    }
+  }
+
   return (
     <li>
       <span>{children}</span>
       <div className={"list-btn"}>
-        <Button clkHandler={() => deleteTodo(id)}>DELETE TODO</Button>
-        <Button clkHandler={() => toggleTodoCompleted(id)}>COMPLETED TODO</Button>
+        {renderBtn()}
       </div>
     </li>
   )

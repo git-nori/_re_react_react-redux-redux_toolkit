@@ -20,10 +20,12 @@ const TodoList = ({ todosFromCon, deleteTodo, toggleTodoCompleted, visibleFilter
   })
 
   const renderList = todos.map((todo, idx) => {
-    const actions = {deleteTodo, toggleTodoCompleted}
-    return (
-      <ListItem key={idx} id={idx} {...actions}>{todo.text}</ListItem>
-    )
+    const actions = [
+      { "name": "DELETE TODO", "hndler": deleteTodo },
+      { "name": "COMPLETED TODO", "hndler": toggleTodoCompleted }
+    ]
+
+    return <ListItem key={idx} id={idx} actions={actions}>{todo.text}</ListItem>
   })
 
   return (
