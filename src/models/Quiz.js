@@ -30,12 +30,12 @@ class Quiz {
   }
 
   static async fetchAndCreateQuizez () {
-    const data = await QuizFetcher.fetchData()
+    const response = await QuizFetcher.fetchData()
 
-    return this.createQuizInstanceWithData(data.results)
+    return this.createQuizInstanceWithData(response.data.results)
   }
 
-  static createQuizInstanceWithData(quizDataList){
+  static createQuizInstanceWithData (quizDataList) {
     return quizDataList.map(result => {
       return {
         question: he.decode(result.question),
