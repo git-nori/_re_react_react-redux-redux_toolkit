@@ -6,7 +6,12 @@ describe('store', () => {
     expect(store.getState()).toStrictEqual({
       // combineReducerのプロパティ名
       todos: [],
-      visibleFilter: SHOW_ALL
+      visibleFilter: SHOW_ALL,
+      quiz: {
+        isLoading: false,
+        quizez: [],
+        error: null
+      }
     })
   })
 })
