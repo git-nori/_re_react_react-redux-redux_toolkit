@@ -10,10 +10,8 @@ export const todoReducer = (state = [], action) => {
     case ADD_TODO:
       const todo = new Todo(action.text)
       return [...state, todo]
-      break;
     case DELETE_TODO:
       return state.filter((todo, idx) => idx !== action.index)
-      break;
     case TOGGLE_TODO_COMPLETED:
       return state.map((todo, idx) => {
         if (idx !== action.index) {
@@ -24,9 +22,7 @@ export const todoReducer = (state = [], action) => {
         if (!todo.hasCompleted()) { newTodo._completed = true }
         return newTodo
       })
-      break;
     default:
       return state
-      break;
   }
 }

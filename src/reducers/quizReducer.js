@@ -17,7 +17,6 @@ export const quizReducer = (state = initialState, actions) => {
         ...state,
         isLoading: true
       }
-      break;
     case FETCH_SUCCESS:
       return {
         ...state,
@@ -25,16 +24,13 @@ export const quizReducer = (state = initialState, actions) => {
         quizez: actions.data,
         error: null
       }
-      break;
     case FETCH_FAILURE:
       return {
         ...state,
         isLoading: false,
         error: actions.error
       }
-      break;
     default:
       return state
-      break;
   }
 }

@@ -9,10 +9,8 @@ const Header = () => {
     switch (location.pathname) {
       case '/quiz':
         return <Link to="/home">Home</Link>
-        break;
       case '/home':
         return <Link to="/quiz">Quiz</Link>
-        break;
       default:
         break;
     }

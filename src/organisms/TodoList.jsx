@@ -9,13 +9,12 @@ const TodoList = ({ todosFromCon, deleteTodo, toggleTodoCompleted, visibleFilter
     switch (visibleFilter) {
       case 'SHOW_ALL':
         return todo
-        break;
       case 'SHOW_ACTIVE':
         return !todo.hasCompleted()
-        break;
       case 'SHOW_COMPLETED':
         return todo.hasCompleted()
-        break;
+      default:
+        return []
     }
   })
 
