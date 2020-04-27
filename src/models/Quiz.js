@@ -42,7 +42,7 @@ class Quiz {
         correctAnswer: he.decode(result.correct_answer),
         inCorrectAnswers: result.incorrect_answers.map(ans => he.decode(ans))
       }
-    }).map(quizData => new Quiz(quizData))
+    }).map(quizData => new Quiz(quizData.question, quizData.correctAnswer, quizData.inCorrectAnswers))
   }
 }
 
